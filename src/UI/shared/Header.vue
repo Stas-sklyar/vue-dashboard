@@ -2,6 +2,7 @@
   <header>
     <nav>
       <RouterLink to="/">Dashboard</RouterLink>
+      <RouterLink to="/courses">Courses</RouterLink>
       <RouterLink to="/login">Login</RouterLink>
       <RouterLink to="/registration">Registration</RouterLink>
     </nav>
