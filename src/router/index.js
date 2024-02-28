@@ -5,7 +5,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'dashboard',
+      name: 'Dashboard',
       component: () => import('@/pages/Dashboard.vue')
     },
     {
@@ -32,6 +32,11 @@ const router = createRouter({
       path: '/lesson/:id',
       name: 'lesson',
       component: () => import('@/pages/Lesson.vue')
+    },
+    {
+      path: '/my-profile/:id',
+      name: 'my-profile',
+      component: () => import('@/pages/MyProfile.vue')
     },
   ]
 })

@@ -11,8 +11,8 @@
 
 <script setup>
   import {ref} from "vue"
-  import Content from "@/UI/course/Content.vue"
-  import Activity from "@/UI/course/Activity.vue";
+  import Content from "@/UI/Course/Content.vue"
+  import Activity from "@/UI/Course/Activity.vue";
 
   const course = ref({
     title: 'Vue.js + Vuex',

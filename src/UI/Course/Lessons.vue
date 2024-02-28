@@ -14,7 +14,7 @@
         @change.stop
       />
 
-      <RouterLink :to="'/lesson/' + lesson.id">
+      <RouterLink :to="'/Lesson/' + lesson.id">
         {{ lesson.title }} - {{ lesson.duration }} minutes
       </RouterLink>
     </label>

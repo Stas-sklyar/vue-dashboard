@@ -15,8 +15,8 @@
 </template>
 
 <script setup>
-  import TimeDistributionChart from "@/UI/dashboard/TimeDistributionChart.vue"
-  import EngagementAnalyticsChart from "@/UI/dashboard/EngagementAnalyticsChart.vue"
+  import TimeDistributionChart from "@/UI/Dashboard/TimeDistributionChart.vue"
+  import EngagementAnalyticsChart from "@/UI/Dashboard/EngagementAnalyticsChart.vue"
 </script>
 
 <style scoped>

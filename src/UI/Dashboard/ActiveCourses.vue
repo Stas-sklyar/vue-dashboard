@@ -9,7 +9,7 @@
     >
       <p>My progress</p>
       <a-progress :percent="course.progress" />
-      <RouterLink :to="'/course/' + course.id">
+      <RouterLink :to="'/Course/' + course.id">
         <a-button>Go to course</a-button>
       </RouterLink>
     </a-card>

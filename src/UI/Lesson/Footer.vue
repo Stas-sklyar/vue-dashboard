@@ -1,14 +1,14 @@
 <template>
   <div class="buttons-wrapper">
     <RouterLink
-      :to="'/lesson/' + lesson.previousLessonId">
+      :to="'/Lesson/' + lesson.previousLessonId">
       <a-button type="primary">Previous lesson</a-button>
     </RouterLink>
 
     <a-button type="primary">Mark as completed</a-button>
 
     <RouterLink
-      :to="'/lesson/' + lesson.nextLessonId">
+      :to="'/Lesson/' + lesson.nextLessonId">
       <a-button type="primary">Next lesson</a-button>
     </RouterLink>
   </div>

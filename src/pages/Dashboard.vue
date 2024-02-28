@@ -8,9 +8,9 @@
 
 <script setup>
   import { ref } from 'vue'
-  import Metrics from "@/UI/dashboard/Metrics.vue"
-  import Charts from "@/UI/dashboard/Charts.vue"
-  import ActiveCourses from "@/UI/dashboard/ActiveCourses.vue"
+  import Metrics from "@/UI/Dashboard/Metrics.vue"
+  import Charts from "@/UI/Dashboard/Charts.vue"
+  import ActiveCourses from "@/UI/Dashboard/ActiveCourses.vue"
 
   const metrics = ref([
     {

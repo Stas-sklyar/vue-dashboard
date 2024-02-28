@@ -15,8 +15,8 @@
 </template>
 
 <script setup>
-  import TimeSpentChart from "@/UI/course/TimeSpentChart.vue"
-  import Progress from "@/UI/course/Progress.vue"
+  import TimeSpentChart from "@/UI/Course/TimeSpentChart.vue"
+  import Progress from "@/UI/Course/Progress.vue"
 
   const { course } = defineProps({
     course: {

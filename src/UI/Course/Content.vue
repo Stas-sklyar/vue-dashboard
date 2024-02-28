@@ -25,8 +25,8 @@
 </template>
 
 <script setup>
-  import Summary from "@/UI/course/Summary.vue"
-  import Lessons from "@/UI/course/Lessons.vue";
+  import Summary from "@/UI/Course/Summary.vue"
+  import Lessons from "@/UI/Course/Lessons.vue";
 
   const { course } = defineProps({
     course: {

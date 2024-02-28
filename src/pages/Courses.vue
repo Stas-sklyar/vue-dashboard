@@ -61,7 +61,7 @@
           :title="item.title"
         ></a-list-item-meta>
 
-        <RouterLink :to="'/course/' + item.id">
+        <RouterLink :to="'/Course/' + item.id">
           <a-button type="primary">Go to Course</a-button>
         </RouterLink>
       </a-list-item>

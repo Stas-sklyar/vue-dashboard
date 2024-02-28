@@ -8,9 +8,9 @@
 
 <script setup>
   import {ref} from "vue"
-  import Video from "@/UI/lesson/Video.vue"
-  import Content from "@/UI/lesson/Content.vue"
-  import Footer from "@/UI/lesson/Footer.vue"
+  import Video from "@/UI/Lesson/Video.vue"
+  import Content from "@/UI/Lesson/Content.vue"
+  import Footer from "@/UI/Lesson/Footer.vue"
 
   const lesson = ref({
     title: 'Introduction of Vue.js',
