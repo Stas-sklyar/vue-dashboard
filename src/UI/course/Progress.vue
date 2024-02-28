@@ -2,7 +2,11 @@
   <a-card>
     <h2 class="card-title">Progress</h2>
     <div class="progress">
-      <a-progress type="circle" :percent="94" />
+      <a-progress
+        type="circle"
+        :percent="94"
+        :size="170"
+      />
     </div>
   </a-card>
 </template>
@@ -21,9 +25,5 @@
 
   .card-title {
     text-align: center;
-  }
-
-  .row .ant-card {
-    height: 100%;
   }
 </style>

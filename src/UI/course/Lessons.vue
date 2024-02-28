@@ -1,25 +1,24 @@
 <template>
-  <a-card>
-    <h2 class="card-title">Lessons</h2>
-    <div class="lessons">
-      <label
-        class="lessons__item"
-        v-for="lesson in props.lessons"
-        :key="lesson.id"
-      >
-        <a-checkbox
-          type="checkbox"
-          :checked="lesson.completed"
-          readonly
-          @change.stop
-        />
+  <h2>Lessons</h2>
 
-        <RouterLink :to="'/lesson/' + lesson.id">
-          {{ lesson.title }} - {{ lesson.duration }} minutes
-        </RouterLink>
-      </label>
-    </div>
-  </a-card>
+  <div class="lessons">
+    <label
+      class="lessons__item"
+      v-for="lesson in props.lessons"
+      :key="lesson.id"
+    >
+      <a-checkbox
+        type="checkbox"
+        :checked="lesson.completed"
+        readonly
+        @change.stop
+      />
+
+      <RouterLink :to="'/lesson/' + lesson.id">
+        {{ lesson.title }} - {{ lesson.duration }} minutes
+      </RouterLink>
+    </label>
+  </div>
 </template>
 
 <script setup>
@@ -39,9 +38,5 @@
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-
-  .card-title {
-    text-align: center;
   }
 </style>
