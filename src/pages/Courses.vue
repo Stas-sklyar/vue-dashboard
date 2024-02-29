@@ -4,12 +4,14 @@
       v-model:value="searchQuery"
       enter-button
       placeholder="Search for courses"
+      :disabled="loaderIsActive"
     />
 
     <a-select
       class="sort-select"
       v-model:value="sortKey"
       placeholder="Sort by"
+      :disabled="loderIsActive"
     >
       <a-select-option value="rating" defa>Sort by Rating</a-select-option>
       <a-select-option value="amountOfLearners">Sort by Number of Learners</a-select-option>
@@ -20,8 +22,9 @@
     class="courses"
     item-layout="vertical"
     size="middle"
-    :pagination="pagination"
+    :pagination="loaderIsActive ? false : pagination"
     :data-source="filteredCourses"
+    :loading="loaderIsActive"
   >
     <template #renderItem="{ item }">
       <a-list-item
@@ -29,15 +32,14 @@
         class="courses__item course"
       >
         <template #actions>
-          <a-rate v-model:value="item.rating" allow-half disabled />
-
-          <span>
-            <component
-              :is="MessageOutlined"
-              style="margin-right: 8px"
+          <div>
+            <a-rate
+              v-model:value="item.rating"
+              allow-half
+              disabled
             />
-            {{ item.commentsAmount }}
-          </span>
+            <span class="ant-rate-text">({{ item.amountOfReviews }})</span>
+          </div>
 
           <span>
             <component
@@ -70,85 +72,15 @@
 </template>
 
 <script setup>
-  import {StarOutlined, LikeOutlined, MessageOutlined, UserOutlined} from '@ant-design/icons-vue'
-  import {computed, ref} from "vue"
+  import {MessageOutlined, UserOutlined} from '@ant-design/icons-vue'
+  import {computed, onMounted, ref} from "vue"
+  import {useStore} from "vuex";
 
-  const courses = ref([
-    {'id': 1,
-    'title': 'Vue.js Course',
-    'description': 'A comprehensive guide to Vue.js for beginners...',
-    'commentsAmount': 15,
-    'rating': 4.5,
-    'amountOfLearners': 2425},
-    {'id': 2,
-      'title': 'React Course',
-      'description': 'Learn React library and create interactive UIs...',
-      'commentsAmount': 20,
-      'rating': 4.7,
-      'amountOfLearners': 8417},
-    {'id': 3,
-      'title': 'JavaScript Basics',
-      'description': 'Lay a solid foundation of JavaScript understanding...',
-      'commentsAmount': 25,
-      'rating': 4.3,
-      'amountOfLearners': 1041},
-    {'id': 4,
-      'title': 'Angular Development',
-      'description': 'Build dynamic web applications with Angular...',
-      'commentsAmount': 18,
-      'rating': 4.6,
-      'amountOfLearners': 5818},
-    {'id': 5,
-      'title': 'Learning Python',
-      'description': 'Become proficient in Python and its popular libraries...',
-      'commentsAmount': 30,
-      'rating': 4.8,
-      'amountOfLearners': 4314},
-    {'id': 6,
-      'title': 'Node.js Course',
-      'description': 'Develop server-side applications with Node.js...',
-      'commentsAmount': 12,
-      'rating': 4.2,
-      'amountOfLearners': 3653},
-    {'id': 7,
-      'title': 'HTML & CSS Basics',
-      'description': 'Learn to create web pages from scratch...',
-      'commentsAmount': 17,
-      'rating': 4.0,
-      'amountOfLearners': 8753},
-    {'id': 8,
-      'title': 'Advanced CSS and Sass',
-      'description': 'Elevate your web design skills...',
-      'commentsAmount': 22,
-      'rating': 4.9,
-      'amountOfLearners': 5836},
-    {'id': 9,
-      'title': 'Introduction to TypeScript',
-      'description': 'Discover how to use TypeScript in web development...',
-      'commentsAmount': 10,
-      'rating': 4.1,
-      'amountOfLearners': 6900},
-    {'id': 10,
-      'title': 'Flutter Development',
-      'description': 'Create cross-platform applications with Flutter...',
-      'commentsAmount': 28,
-      'rating': 4.7,
-      'amountOfLearners': 4479},
-    {'id': 11,
-      'title': 'SQL Course',
-      'description': 'Master the skills of working with SQL databases...',
-      'commentsAmount': 14,
-      'rating': 4.4,
-      'amountOfLearners': 5206},
-    {'id': 12,
-      'title': 'Web Application Security',
-      'description': 'Learn the best practices for securing web applications...',
-      'commentsAmount': 19,
-      'rating': 4.5,
-      'amountOfLearners': 875}
-  ])
+  const store = useStore()
+  const courses = ref([])
   const searchQuery = ref('')
   const sortKey = ref('rating')
+  const loaderIsActive = ref(true)
 
   const sortCourses = (a, b) => {
     if (sortKey.value === 'rating') {
@@ -175,6 +107,17 @@
     },
     pageSize: 4
   }
+
+  onMounted(async () => {
+    try {
+      await store.dispatch('fetchCourses')
+      courses.value = store.state.courses
+    } catch (e) {
+      console.error(e)
+    } finally {
+      loaderIsActive.value = false
+    }
+  })
 </script>
 
 <style lang="scss" scoped>
