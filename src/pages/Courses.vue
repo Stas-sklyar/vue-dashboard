@@ -131,7 +131,6 @@
 
   .course {
     background-color: #ffffff;
-    border-radius: 8px;
 
     &__image {
       width: 100%;

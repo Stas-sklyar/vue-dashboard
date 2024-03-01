@@ -8,7 +8,7 @@
       <span> {{ lesson.duration }} min </span>
     </div>
 
-    <h3>Progress: {{ lesson.completed ? 'Completed ✅' : 'In progress 🕒' }}</h3>
+    <h3>Status: {{ lesson.completed ? 'Completed ✅' : 'In progress 🕒' }}</h3>
 
     <h3>Summary of the lesson:</h3>
     <ul>

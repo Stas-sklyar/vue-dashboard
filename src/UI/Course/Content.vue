@@ -14,7 +14,7 @@
       <span> {{ course.duration }} hours </span>
     </div>
 
-    <h3>Progress: {{ course.completed ? 'Completed ✅' : 'In progress 🕒' }}</h3>
+    <h3>Status: {{ course.completed ? 'Completed ✅' : 'In progress 🕒' }}</h3>
 
     <Summary :goals="course.goals" />
 

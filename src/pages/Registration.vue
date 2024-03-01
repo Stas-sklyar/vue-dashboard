@@ -1,33 +1,33 @@
 <template>
   <a-card
-    class="registration-container"
+    class="registration form"
     title="Registration"
   >
-    <form @submit.prevent="registration">
-      <div class="form-group">
+    <form>
+      <div class="registration__form-group form-group">
         <label for="email">Email</label>
         <a-input
-          v-model:value.lazy="email"
+          v-model="email"
           type="email"
           id="email"
           required
         />
       </div>
 
-      <div class="form-group">
+      <div class="registration__form-group form-group">
         <label for="password">Password</label>
         <a-input
-          v-model:value.lazy="password"
+          v-model="password"
           type="password"
           id="password"
           required
         />
       </div>
 
-      <div class="form-group">
+      <div class="registration__form-group form-group">
         <label for="password">Repeat Password</label>
         <a-input
-          v-model:value.lazy="repeatPassword"
+          v-model="repeatPassword"
           type="password"
           id="password"
           required
@@ -35,12 +35,18 @@
       </div>
 
       <a-button
+        class="registration__button button"
         type="primary"
-        @click.prevent="registration"
+        @click="registration"
       >
         Registration
       </a-button>
     </form>
+
+    <div class="registration__links registration-links">
+      <RouterLink to="/login">Login</RouterLink>
+      <RouterLink to="/forgot-password">Forgot Password</RouterLink>
+    </div>
   </a-card>
 </template>
 
@@ -56,24 +62,36 @@
   }
 </script>
 
-<style>
-  .registration-container {
+<style lang="scss">
+  .registration {
     width: 400px;
     margin: 0 auto;
+
+    &__form-group {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__button {
+      margin-bottom: 20px;
+    }
   }
 
   .form-group {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-bottom: 20px;
   }
-</style>
 
-<style>
-  .ant-card-head-title {
-    text-align: center;
-    font-weight: bold;
-    font-size: 24px;
+  .button {
+    width: 100%;
+  }
+
+  .registration-links {
+    display: flex;
+    justify-content: space-between;
   }
 </style>

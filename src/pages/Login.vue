@@ -1,23 +1,23 @@
 <template>
   <a-card
     title="Login"
-    class="login-container"
+    class="login form"
   >
     <form @submit.prevent="login">
-      <div class="form-group">
+      <div class="login__form-group form-group">
         <label for="email">Email</label>
         <a-input
-          v-model:value.lazy="email"
+          v-model="email"
           type="email"
           id="email"
           required
         />
       </div>
 
-      <div class="form-group">
+      <div class="login__form-group form-group">
         <label for="password">Password</label>
         <a-input
-          v-model:value.lazy="password"
+          v-model="password"
           type="password"
           id="password"
           required
@@ -25,12 +25,18 @@
       </div>
 
       <a-button
+        class="login__button button"
         type="primary"
-        @click.prevent="login"
+        @click="login"
       >
         Login
       </a-button>
     </form>
+
+    <div class="login__links login-links">
+      <RouterLink to="/registration">Registration</RouterLink>
+      <RouterLink to="/forgot-password">Forgot Password</RouterLink>
+    </div>
   </a-card>
 </template>
 
@@ -45,24 +51,32 @@
   }
 </script>
 
-<style scoped>
-  .login-container {
+<style lang="scss" scoped>
+  .login {
     width: 400px;
     margin: 0 auto;
+
+    &__form-group {
+      margin-bottom: 20px;
+    }
+
+    &__button {
+      margin-bottom: 20px;
+    }
   }
 
   .form-group {
-    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     gap: 5px;
   }
-</style>
 
-<style>
-  .ant-card-head-title {
-    text-align: center;
-    font-weight: bold;
-    font-size: 24px;
+  .button {
+    width: 100%;
+  }
+
+  .login-links {
+    display: flex;
+    justify-content: space-between;
   }
 </style>

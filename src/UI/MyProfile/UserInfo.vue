@@ -1,5 +1,8 @@
 <template>
-  <a-card>
+  <a-card
+    class="form"
+    title="User Info"
+  >
     <form>
       <a-form-item label="Username">
         <a-input
@@ -15,10 +18,20 @@
         />
       </a-form-item>
 
+      <a-form-item label="Speciality">
+        <a-select v-model="speciality">
+          <a-select-option value="frontend">Frontend</a-select-option>
+          <a-select-option value="backend">Backend</a-select-option>
+          <a-select-option value="fullstack">Fullstack</a-select-option>
+          <a-select-option value="devops">DevOps</a-select-option>
+          <a-select-option value="qa">QA</a-select-option>
+        </a-select>
+      </a-form-item>
+
       <a-form-item>
         <a-button
           type="primary"
-          html-type="submit"
+          @click="updateProfile"
         >
           Update
         </a-button>
@@ -32,6 +45,11 @@
 
   const name = ref("John Doe")
   const email = ref("stas.sklyar.dev@gmail.com")
+  const speciality = ref("")
+
+  const updateProfile = () => {
+    console.log(name, email, speciality)
+  }
 </script>
 
 <style lang="scss">
