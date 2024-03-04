@@ -1,5 +1,5 @@
 const fetchCourses = async ({ commit }) => {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       try {
         // const response = await fetch('http://localhost:3000/courses')

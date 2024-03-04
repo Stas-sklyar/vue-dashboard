@@ -1,16 +1,21 @@
 @import './base.css';
 
 .img-fluid {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .form .ant-card-head-title {
-    text-align: center;
-    font-weight: bold;
-    font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
 }
 
-.ant-card, .ant-list-item {
-    border-radius: 12px;
+.ant-card,
+.ant-list-item {
+  border-radius: 12px;
+}
+
+.ant-row .ant-card {
+  height: 100%;
 }

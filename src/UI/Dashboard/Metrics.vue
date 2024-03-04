@@ -13,34 +13,34 @@
 </template>
 
 <script setup>
-  import {defineProps} from "vue"
+import { defineProps } from 'vue'
 
-  const props = defineProps({
-    metrics: Array
-  })
+const props = defineProps({
+  metrics: Array
+})
 </script>
 
 <style scoped>
-  .cards {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
+.cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-  .cards .card {
-    width: 100%;
-    text-align: center;
-  }
+.cards .card {
+  width: 100%;
+  text-align: center;
+}
 </style>
 
 <style>
-  .cards .card .ant-card-head-title {
-    font-size: 18px;
-  }
+.cards .card .ant-card-head-title {
+  font-size: 18px;
+}
 
-  .cards .card .ant-card-body {
-    font-size: 36px;
-    font-weight: bold;
-    padding: 10px;
-  }
+.cards .card .ant-card-body {
+  font-size: 36px;
+  font-weight: bold;
+  padding: 10px;
+}
 </style>

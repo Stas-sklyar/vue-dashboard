@@ -10,29 +10,27 @@
 </template>
 
 <script setup>
-
-  import {RouterLink} from "vue-router"
-
+import { RouterLink } from 'vue-router'
 </script>
 
 <style scoped>
-  header {
-    background-color: #ffffff;
-    padding: 20px;
-  }
+header {
+  background-color: #ffffff;
+  padding: 20px;
+}
 
-  nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
 
-  a {
-    text-decoration: none;
-    color: #000000;
-  }
+a {
+  text-decoration: none;
+  color: #000000;
+}
 
-  a:hover {
-    text-decoration: underline;
-  }
+a:hover {
+  text-decoration: underline;
+}
 </style>

@@ -1,9 +1,5 @@
 <template>
-  <a-row
-    class="row"
-    :gutter="20"
-    v-if="course.active"
-  >
+  <a-row class="row" :gutter="20" v-if="course.active">
     <a-col :span="12">
       <TimeSpentChart />
     </a-col>
@@ -15,19 +11,19 @@
 </template>
 
 <script setup>
-  import TimeSpentChart from "@/UI/Course/TimeSpentChart.vue"
-  import Progress from "@/UI/Course/Progress.vue"
+import TimeSpentChart from '@/UI/Course/TimeSpentChart.vue'
+import Progress from '@/UI/Course/Progress.vue'
 
-  const { course } = defineProps({
-    course: {
-      type: Object,
-      required: true
-    }
-  })
+const { course } = defineProps({
+  course: {
+    type: Object,
+    required: true
+  }
+})
 </script>
 
 <style scoped>
-  .row .ant-card {
-    height: 100%;
-  }
+.row .ant-card {
+  height: 100%;
+}
 </style>

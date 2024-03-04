@@ -1,36 +1,17 @@
 <template>
-  <a-card
-    title="Login"
-    class="login form"
-  >
+  <a-card title="Login" class="login form">
     <form @submit.prevent="login">
       <div class="login__form-group form-group">
         <label for="email">Email</label>
-        <a-input
-          v-model="email"
-          type="email"
-          id="email"
-          required
-        />
+        <a-input v-model="email" type="email" id="email" required />
       </div>
 
       <div class="login__form-group form-group">
         <label for="password">Password</label>
-        <a-input
-          v-model="password"
-          type="password"
-          id="password"
-          required
-        />
+        <a-input v-model="password" type="password" id="password" required />
       </div>
 
-      <a-button
-        class="login__button button"
-        type="primary"
-        @click="login"
-      >
-        Login
-      </a-button>
+      <a-button class="login__button button" type="primary" @click="login"> Login </a-button>
     </form>
 
     <div class="login__links login-links">
@@ -41,42 +22,42 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+import { ref } from 'vue'
 
-  const email = ref('')
-  const password = ref('')
+const email = ref('')
+const password = ref('')
 
-  const login = () => {
-    console.log(`Login attempt with email: ${email.value} and password: ${password.value}`)
-  }
+const login = () => {
+  console.log(`Login attempt with email: ${email.value} and password: ${password.value}`)
+}
 </script>
 
 <style lang="scss" scoped>
-  .login {
-    width: 400px;
-    margin: 0 auto;
+.login {
+  width: 400px;
+  margin: 0 auto;
 
-    &__form-group {
-      margin-bottom: 20px;
-    }
-
-    &__button {
-      margin-bottom: 20px;
-    }
+  &__form-group {
+    margin-bottom: 20px;
   }
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  &__button {
+    margin-bottom: 20px;
   }
+}
 
-  .button {
-    width: 100%;
-  }
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
-  .login-links {
-    display: flex;
-    justify-content: space-between;
-  }
+.button {
+  width: 100%;
+}
+
+.login-links {
+  display: flex;
+  justify-content: space-between;
+}
 </style>

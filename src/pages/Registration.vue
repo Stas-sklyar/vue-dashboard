@@ -1,44 +1,22 @@
 <template>
-  <a-card
-    class="registration form"
-    title="Registration"
-  >
+  <a-card class="registration form" title="Registration">
     <form>
       <div class="registration__form-group form-group">
         <label for="email">Email</label>
-        <a-input
-          v-model="email"
-          type="email"
-          id="email"
-          required
-        />
+        <a-input v-model="email" type="email" id="email" required />
       </div>
 
       <div class="registration__form-group form-group">
         <label for="password">Password</label>
-        <a-input
-          v-model="password"
-          type="password"
-          id="password"
-          required
-        />
+        <a-input v-model="password" type="password" id="password" required />
       </div>
 
       <div class="registration__form-group form-group">
         <label for="password">Repeat Password</label>
-        <a-input
-          v-model="repeatPassword"
-          type="password"
-          id="password"
-          required
-        />
+        <a-input v-model="repeatPassword" type="password" id="password" required />
       </div>
 
-      <a-button
-        class="registration__button button"
-        type="primary"
-        @click="registration"
-      >
+      <a-button class="registration__button button" type="primary" @click="registration">
         Registration
       </a-button>
     </form>
@@ -51,47 +29,47 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+import { ref } from 'vue'
 
-  const email = ref('')
-  const password = ref('')
-  const repeatPassword = ref('')
+const email = ref('')
+const password = ref('')
+const repeatPassword = ref('')
 
-  const registration = () => {
-    console.log(`Login attempt with email: ${email.value} and password: ${password.value}`)
-  }
+const registration = () => {
+  console.log(`Login attempt with email: ${email.value} and password: ${password.value}`)
+}
 </script>
 
 <style lang="scss">
-  .registration {
-    width: 400px;
-    margin: 0 auto;
+.registration {
+  width: 400px;
+  margin: 0 auto;
 
-    &__form-group {
-      margin-bottom: 20px;
+  &__form-group {
+    margin-bottom: 20px;
 
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    &__button {
-      margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  &__button {
+    margin-bottom: 20px;
   }
+}
 
-  .button {
-    width: 100%;
-  }
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
-  .registration-links {
-    display: flex;
-    justify-content: space-between;
-  }
+.button {
+  width: 100%;
+}
+
+.registration-links {
+  display: flex;
+  justify-content: space-between;
+}
 </style>

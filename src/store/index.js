@@ -1,7 +1,7 @@
 import { createStore } from 'vuex'
-import fetchCourses from "@/store/actions/fetch-courses.js"
-import fetchCourseDetails from "@/store/actions/fetch-course-details.js"
-import fetchLessonDetails from "@/store/actions/fetch-lesson-details.js";
+import fetchCourses from '@/store/actions/fetch-courses.js'
+import fetchCourseDetails from '@/store/actions/fetch-course-details.js'
+import fetchLessonDetails from '@/store/actions/fetch-lesson-details.js'
 
 const store = createStore({
   state() {

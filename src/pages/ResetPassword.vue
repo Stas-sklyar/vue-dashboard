@@ -1,9 +1,5 @@
 <template>
-  <a-card
-    class="reset-password form"
-    title="Reset Password"
-  >
-
+  <a-card class="reset-password form" title="Reset Password">
     <form>
       <div class="reset-password__form-group form-group">
         <label for="password">Password</label>
@@ -27,11 +23,7 @@
         />
       </div>
 
-      <a-button
-        class="reset-password__button button"
-        type="primary"
-        @click.prevent="resetPassword"
-      >
+      <a-button class="reset-password__button button" type="primary" @click.prevent="resetPassword">
         Reset Password
       </a-button>
     </form>
@@ -39,33 +31,33 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+import { ref } from 'vue'
 
-  const password = ref('')
-  const repeatPassword = ref('')
+const password = ref('')
+const repeatPassword = ref('')
 
-  const resetPassword = () => {
-    console.log(password.value, repeatPassword.value)
-  }
+const resetPassword = () => {
+  console.log(password.value, repeatPassword.value)
+}
 </script>
 
 <style lang="scss" scoped>
-  .reset-password {
-    width: 400px;
-    margin: 0 auto;
+.reset-password {
+  width: 400px;
+  margin: 0 auto;
 
-    &__form-group {
-      margin-bottom: 20px;
-    }
+  &__form-group {
+    margin-bottom: 20px;
   }
+}
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
-  .button {
-    width: 100%;
-  }
+.button {
+  width: 100%;
+}
 </style>

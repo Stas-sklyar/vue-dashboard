@@ -17,37 +17,36 @@
 </template>
 
 <script setup>
-  import {RouterLink} from "vue-router"
-  import {defineProps} from "vue"
+import { RouterLink } from 'vue-router'
+import { defineProps } from 'vue'
 
-  const props = defineProps({
-    activeCourses: Array,
-  })
+const props = defineProps({
+  activeCourses: Array
+})
 </script>
 
-
 <style scoped>
-  .active-courses {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
+.active-courses {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-  .active-courses .active-courses__item {
-    width: 100%;
-    max-width: calc(50% - 10px)
-  }
+.active-courses .active-courses__item {
+  width: 100%;
+  max-width: calc(50% - 10px);
+}
 
-  .active-courses .ant-card-head-title {
-    font-size: 16px;
-    font-weight: bold;
-  }
+.active-courses .ant-card-head-title {
+  font-size: 16px;
+  font-weight: bold;
+}
 </style>
 
 <style>
-  .active-courses .ant-card-head-title {
-    font-size: 16px;
-    font-weight: bold;
-  }
+.active-courses .ant-card-head-title {
+  font-size: 16px;
+  font-weight: bold;
+}
 </style>
