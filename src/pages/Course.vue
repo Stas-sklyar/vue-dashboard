@@ -2,9 +2,8 @@
   <div class="container" v-if="!loaderIsActive">
     <Content :course="course" />
     <Activity v-if="course.active" :course="course" />
+    <Reviews :course-id="course.id" />
   </div>
-
-  <a-spin v-else size="large" />
 </template>
 
 <script setup>
@@ -13,6 +12,7 @@ import Content from '@/UI/Course/Content.vue'
 import Activity from '@/UI/Course/Activity.vue'
 import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
+import Reviews from '@/UI/Course/Reviews.vue'
 
 const store = useStore()
 const $route = useRoute()

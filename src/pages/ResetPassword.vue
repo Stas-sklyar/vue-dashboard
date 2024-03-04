@@ -1,5 +1,5 @@
 <template>
-  <a-card class="reset-password form" title="Reset Password">
+  <a-card class="reset-password title-center" title="Reset Password">
     <form>
       <div class="reset-password__form-group form-group">
         <label for="password">Password</label>

@@ -1,5 +1,5 @@
 <template>
-  <a-card class="form" title="User Info">
+  <a-card class="title-center" title="User Info">
     <form>
       <div class="form__avatar-wrapper avatar-wrapper">
         <a-avatar :size="120">

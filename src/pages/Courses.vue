@@ -18,24 +18,17 @@
     </a-select>
   </div>
 
-  <a-list
-    class="courses"
-    item-layout="vertical"
-    size="middle"
-    :pagination="loaderIsActive ? false : pagination"
-    :data-source="filteredCourses"
-    :loading="loaderIsActive"
-  >
-    <template #renderItem="{ item }">
-      <CourseCard :key="item.id" :course="item" />
-    </template>
-  </a-list>
+  <CoursesList
+    :pagination="pagination"
+    :loader-is-active="loaderIsActive"
+    :courses="filteredCourses"
+  />
 </template>
 
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { useStore } from 'vuex'
-import CourseCard from '@/UI/shared/CourseCard.vue'
+import CoursesList from '@/UI/shared/CoursesList.vue'
 
 const store = useStore()
 const courses = ref([])
@@ -82,14 +75,6 @@ onMounted(async () => {
 </script>
 
 <style lang="scss" scoped>
-.courses {
-  padding: 15px 0;
-
-  &__item {
-    margin-bottom: 10px;
-  }
-}
-
 .filter-container {
   display: flex;
   gap: 30px;

@@ -1,5 +1,5 @@
 <template>
-  <a-card title="Login" class="login form">
+  <a-card title="Login" class="login title-center">
     <form @submit.prevent="login">
       <div class="login__form-group form-group">
         <label for="email">Email</label>

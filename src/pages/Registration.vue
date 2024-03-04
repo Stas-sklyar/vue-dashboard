@@ -1,5 +1,5 @@
 <template>
-  <a-card class="registration form" title="Registration">
+  <a-card class="registration title-center" title="Registration">
     <form>
       <div class="registration__form-group form-group">
         <label for="email">Email</label>

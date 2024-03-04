@@ -5,6 +5,7 @@ const fetchCourseDetails = async (context, courseId) => {
 
     setTimeout(() => {
       context.commit('setSelectedCourse', {
+        id: 'id123',
         title: 'Vue.js + Vuex',
         active: true,
         poster:

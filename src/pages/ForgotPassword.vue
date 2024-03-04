@@ -1,5 +1,5 @@
 <template>
-  <a-card class="forgot-password form" title="Forgot Password">
+  <a-card class="forgot-password title-center" title="Forgot Password">
     <form>
       <div class="forgot-password__form-group form-group">
         <label for="email">Email</label>

@@ -1,5 +1,5 @@
 <template>
-  <a-card class="form" title="Change Password">
+  <a-card class="title-center" title="Change Password">
     <form>
       <a-form-item label="Old password">
         <a-input v-model="oldPassword" placeholder="Enter old password" />
