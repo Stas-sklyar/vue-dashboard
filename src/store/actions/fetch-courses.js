@@ -106,7 +106,7 @@ const fetchCourses = async ({ commit }) => {
       } catch (error) {
         console.log(error)
       }
-    }, 2000)
+    }, 700)
   })
 }
 

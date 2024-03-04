@@ -31,7 +31,7 @@ const fetchSelectedCourseReviews = async ({ commit }, payload) => {
       } catch (error) {
         console.log(error)
       }
-    }, 2000)
+    }, 700)
   })
 }
 

@@ -23,6 +23,10 @@
         <a-input v-model="name" placeholder="Username" />
       </a-form-item>
 
+      <a-form-item label="Age">
+        <a-input v-model="name" placeholder="Your age" type="number" />
+      </a-form-item>
+
       <a-form-item label="Email">
         <a-input :value="email" disabled />
       </a-form-item>

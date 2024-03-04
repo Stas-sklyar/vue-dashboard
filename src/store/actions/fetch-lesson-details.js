@@ -23,7 +23,7 @@ const fetchLessonDetails = async (context, lessonId) => {
       })
 
       resolve()
-    }, 2000)
+    }, 700)
   })
 }
 

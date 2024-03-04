@@ -30,7 +30,7 @@ const fetchCourseDetails = async (context, courseId) => {
       })
 
       resolve()
-    }, 2000)
+    }, 700)
   })
 }
 
