@@ -3,7 +3,14 @@
     <form>
       <div class="forgot-password__form-group form-group">
         <label for="email">Email</label>
-        <a-input v-model="email" type="email" id="email" required placeholder="Enter your email" />
+        <a-input
+          v-model="email"
+          type="email"
+          id="email"
+          required
+          placeholder="Enter your email"
+          v-autofocus
+        />
       </div>
 
       <a-button

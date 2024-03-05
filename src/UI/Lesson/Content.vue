@@ -18,10 +18,14 @@
     </ul>
 
     <p>{{ lesson.description }}</p>
+
+    <Footer :lesson="lesson" />
   </a-card>
 </template>
 
 <script setup>
+import Footer from '@/UI/Lesson/Footer.vue'
+
 const { lesson } = defineProps({
   lesson: Object
 })

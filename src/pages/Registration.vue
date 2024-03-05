@@ -3,7 +3,7 @@
     <form>
       <div class="registration__form-group form-group">
         <label for="email">Email</label>
-        <a-input v-model="email" type="email" id="email" required />
+        <a-input v-model="email" type="email" id="email" required v-autofocus />
       </div>
 
       <div class="registration__form-group form-group">

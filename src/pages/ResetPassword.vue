@@ -9,6 +9,7 @@
           id="password"
           required
           placeholder="Enter new password"
+          v-autofocus
         />
       </div>
 

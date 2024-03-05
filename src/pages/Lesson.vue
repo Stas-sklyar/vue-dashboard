@@ -2,7 +2,7 @@
   <div v-if="!loaderIsActive" class="page-wrapper">
     <Video />
     <Content :lesson="lesson" />
-    <Footer :lesson="lesson" />
+    <Questions />
   </div>
 
   <a-spin v-else size="large" />
@@ -12,9 +12,9 @@
 import { onMounted, ref } from 'vue'
 import Video from '@/UI/Lesson/Video.vue'
 import Content from '@/UI/Lesson/Content.vue'
-import Footer from '@/UI/Lesson/Footer.vue'
 import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
+import Questions from '@/UI/Lesson/Questions.vue'
 
 const store = useStore()
 const $route = useRoute()

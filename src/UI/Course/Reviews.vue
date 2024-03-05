@@ -2,10 +2,7 @@
   <a-card title="Reviews" class="title-center">
     <a-list item-layout="horizontal" :dataSource="reviews" :loading="loaderIsActive">
       <template #loadMore>
-        <div
-          v-if="!initLoading && !loaderIsActive"
-          class="load-more"
-        >
+        <div v-if="!initLoading && !loaderIsActive" class="load-more">
           <a-button @click="onLoadMore">loading more</a-button>
           <a-spin v-if="loadMoreLoaderIsActive" />
         </div>
