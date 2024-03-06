@@ -1,34 +1,65 @@
 <template>
   <a-card>
     <h3>Questions</h3>
-    <AddQuestionForm @add-question="onAddQuestion" />
-    <Question v-for="question in questions" :key="question.id" :question="question" />
+    <AddQuestionForm @add-question="onAddQuestion" :submitting="submitting" />
+
+    <a-list item-layout="horizontal" :dataSource="questions" :loading="loaderIsActive">
+      <template #loadMore>
+        <div v-if="!initLoading && !loaderIsActive" class="load-more">
+          <a-button @click="onLoadMore">loading more</a-button>
+          <a-spin v-if="loadMoreLoaderIsActive" />
+        </div>
+      </template>
+
+      <Question v-for="question in questions" :key="question.id" :question="question" />
+    </a-list>
   </a-card>
 </template>
 
 <script setup>
 import Question from '@/UI/Lesson/Question.vue'
-import { ref } from 'vue'
+import {onMounted, ref} from 'vue'
 import AddQuestionForm from '@/UI/Lesson/AddQuestionForm.vue'
+import {useStore} from "vuex";
 
-const questions = ref([
-  {
-    id: 1,
-    content: 'This is a question',
-    author: 'John Doe',
-    avatar: 'https://randomuser.me/api/portraits',
-    replies: []
-  },
-  {
-    id: 2,
-    content: 'This is another question',
-    author: 'Amy Smith',
-    avatar: 'https://randomuser.me/api/portraits',
-    replies: []
+const { lessonId } = defineProps({
+  lessonId: {
+    type: String,
+    required: true
   }
-])
+})
 
-const onAddQuestion = (question) => {
-  questions.value.unshift(question)
+const questions = ref([])
+const store = useStore()
+const loaderIsActive = ref(true)
+const initLoading = ref(true)
+const loadMoreLoaderIsActive = ref(false)
+const submitting = ref(false)
+
+const onLoadMore = () => {
+  loadMoreLoaderIsActive.value = true
+
+  setTimeout(() => {
+    questions.value = [...questions.value, ...questions.value]
+    loadMoreLoaderIsActive.value = false
+  }, 300)
 }
+
+const onAddQuestion = async (question) => {
+  submitting.value = true
+  await store.dispatch('createQuestion', { question })
+  submitting.value = false
+}
+
+onMounted(async () => {
+  try {
+    await store.dispatch('fetchSelectedLessonQuestions', { lessonId })
+    questions.value = store.state.selectedLessonQuestions
+  } catch (e) {
+    console.error(e)
+  } finally {
+    loaderIsActive.value = false
+    initLoading.value = false
+  }
+})
 </script>

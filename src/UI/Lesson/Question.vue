@@ -3,6 +3,12 @@
     <template #avatar>
       <a-avatar :src="question.avatar" :alt="question.author" />
     </template>
+
+    <a-comment v-for="reply in question.replies" :author="reply.author" :content="reply.content" :key="reply.id">
+      <template #avatar>
+        <a-avatar :src="reply.avatar" :alt="reply.author" />
+      </template>
+    </a-comment>
   </a-comment>
 </template>
 

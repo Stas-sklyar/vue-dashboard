@@ -5,6 +5,8 @@ import fetchLessonDetails from '@/store/actions/fetch-lesson-details.js'
 import fetchRecommendedCourses from '@/store/actions/fetch-recomended-courses.js'
 import fetchActiveCourses from '@/store/actions/fetch-active-courses.js'
 import fetchSelectedCourseReviews from '@/store/actions/fetch-course-reviews.js'
+import fetchSelectedLessonQuestions from "@/store/actions/fetch-selected-lesson-questions.js";
+import createQuestion from "@/store/actions/create-question.js";
 
 const store = createStore({
   state() {
@@ -12,10 +14,11 @@ const store = createStore({
       courses: [],
       selectedCourse: null,
       selectedLesson: null,
+      selectedLessonQuestions: [],
       recommendedCourses: [],
       activeCourse: null,
       userId: 'id123',
-      selectedCourseReviews: []
+      selectedCourseReviews: [],
     }
   },
   actions: {
@@ -24,7 +27,9 @@ const store = createStore({
     fetchLessonDetails,
     fetchRecommendedCourses,
     fetchActiveCourses,
-    fetchSelectedCourseReviews
+    fetchSelectedCourseReviews,
+    fetchSelectedLessonQuestions,
+    createQuestion,
   },
   mutations: {
     setCourses(state, courses) {
@@ -44,6 +49,12 @@ const store = createStore({
     },
     setSelectedCourseReviews(state, reviews) {
       state.selectedCourseReviews = reviews
+    },
+    setSelectedLessonQuestions(state, questions) {
+      state.selectedLessonQuestions = questions
+    },
+    addQuestion(state, question) {
+      state.selectedLessonQuestions.unshift(question)
     }
   }
 })

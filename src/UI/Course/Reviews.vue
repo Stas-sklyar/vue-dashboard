@@ -48,7 +48,7 @@ const onLoadMore = () => {
 
 onMounted(async () => {
   try {
-    await store.dispatch('fetchSelectedCourseReviews', { userId: courseId })
+    await store.dispatch('fetchSelectedCourseReviews', { courseId })
     reviews.value = store.state.selectedCourseReviews
   } catch (e) {
     console.error(e)
@@ -58,13 +58,3 @@ onMounted(async () => {
   }
 })
 </script>
-
-<style>
-.load-more {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-</style>
