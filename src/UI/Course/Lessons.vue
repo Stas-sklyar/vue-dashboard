@@ -5,7 +5,7 @@
     <label class="lessons__item" v-for="lesson in props.lessons" :key="lesson.id">
       <a-checkbox type="checkbox" :checked="lesson.completed" readonly @change.stop />
 
-      <RouterLink :to="'/Lesson/' + lesson.id">
+      <RouterLink :to="'/lesson/' + lesson.id">
         {{ lesson.title }} - {{ lesson.duration }} minutes
       </RouterLink>
     </label>

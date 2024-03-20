@@ -11,7 +11,7 @@
         <a-input v-model="password" type="password" id="password" required />
       </div>
 
-      <a-button class="login__button button" type="primary" @click="login"> Login </a-button>
+      <a-button class="login__button button" type="primary" @click="login">Login</a-button>
     </form>
 
     <div class="login__links login-links">

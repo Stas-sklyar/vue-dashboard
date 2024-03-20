@@ -2,7 +2,7 @@
   <div v-if="!loaderIsActive" class="page-wrapper">
     <Video />
     <Content :lesson="lesson" />
-    <Questions />
+    <Questions :lessonId="lesson.id" />
   </div>
 
   <a-spin v-else size="large" />

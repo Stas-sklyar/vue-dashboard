@@ -13,7 +13,6 @@
 import CoursesList from '@/UI/shared/CoursesList.vue'
 import { useStore } from 'vuex'
 import { onMounted, ref } from 'vue'
-import fetchActiveCourses from '@/store/actions/fetch-active-courses.js'
 
 const store = useStore()
 const courses = ref([])

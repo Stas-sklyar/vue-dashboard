@@ -47,6 +47,11 @@ const router = createRouter({
       path: '/reset-password',
       name: 'reset-password',
       component: () => import('@/pages/ResetPassword.vue')
+    },
+    {
+      path: '/create-course',
+      name: 'create-course',
+      component: () => import('@/pages/admin/CreateCourse.vue')
     }
   ]
 })

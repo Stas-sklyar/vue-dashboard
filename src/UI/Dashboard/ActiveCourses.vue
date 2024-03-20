@@ -1,52 +1,40 @@
 <template>
-  <div class="active-courses">
-    <a-card
-      v-for="course in props.activeCourses"
-      class="active-courses__item course"
-      :title="course.title"
-      :bordered="false"
-      :key="course.id"
-    >
-      <p>My progress</p>
-      <a-progress :percent="course.progress" />
-      <RouterLink :to="'/Course/' + course.id">
-        <a-button>Go to course</a-button>
-      </RouterLink>
-    </a-card>
-  </div>
+  <CoursesList
+    :courses="courses"
+    :loader-is-active="loaderIsActive"
+    :pagination="pagination"
+    :progress-is-visible="true"
+  />
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
-import { defineProps } from 'vue'
+import CoursesList from '@/UI/shared/CoursesList.vue'
+import { useStore } from 'vuex'
+import { onMounted, ref } from 'vue'
 
 const props = defineProps({
   activeCourses: Array
 })
+
+const store = useStore()
+const courses = ref([])
+const loaderIsActive = ref(true)
+
+const pagination = {
+  onChange: () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  },
+  pageSize: 4
+}
+
+onMounted(async () => {
+  try {
+    await store.dispatch('fetchActiveCourses', { userId: store.state.userId })
+    courses.value = store.state.activeCourse
+  } catch (e) {
+    console.error(e)
+  } finally {
+    loaderIsActive.value = false
+  }
+})
 </script>
-
-<style scoped>
-.active-courses {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.active-courses .active-courses__item {
-  width: 100%;
-  max-width: calc(50% - 10px);
-}
-
-.active-courses .ant-card-head-title {
-  font-size: 16px;
-  font-weight: bold;
-}
-</style>
-
-<style>
-.active-courses .ant-card-head-title {
-  font-size: 16px;
-  font-weight: bold;
-}
-</style>

@@ -34,28 +34,7 @@ const metrics = ref([
     id: 4
   }
 ])
-const activeCourses = ref([
-  {
-    title: 'Learn React + Redux',
-    progress: 20,
-    id: 1
-  },
-  {
-    title: 'Learn Vue + Vuex',
-    progress: 86,
-    id: 2
-  },
-  {
-    title: 'Learn Angular + NgRx',
-    progress: 45,
-    id: 3
-  },
-  {
-    title: 'Learn Svelte + SvelteKit',
-    progress: 100,
-    id: 4
-  }
-])
+const activeCourses = ref()
 </script>
 
 <style scoped>

@@ -24,7 +24,7 @@ import {useStore} from "vuex";
 
 const { lessonId } = defineProps({
   lessonId: {
-    type: String,
+    type: Number,
     required: true
   }
 })
